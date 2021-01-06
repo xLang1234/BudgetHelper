@@ -28,6 +28,10 @@ def planner_route():
 def faq_route():
     return render_template("faq.html")
 
+@app.route("/spending", methods=["GET"])
+def spending_route():
+    return render_template("spending.html")
+
 @app.route("/api/data")
 def allData():
     query = {'user_id': request.args.get('user_id') }
