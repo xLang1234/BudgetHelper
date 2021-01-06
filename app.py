@@ -12,7 +12,7 @@ def default():
     return render_template("index.html")
 
 @app.route("/planner", methods=["GET"])
-def default():
+def planner_route():
     return render_template("planner.html")
 
 if __name__ == '__main__':
