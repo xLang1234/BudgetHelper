@@ -8,7 +8,13 @@ app.controller("mainPageCtrl", function ($scope, $http) {
     $scope.sendData = {
         'name' : '',
         'amount' : 0,
-        'user_id' : 1
+        'user_id' : localStorage.getItem("user_id")
+    };
+
+    $scope.spendData = {
+        'name' : '',
+        'amount' : 0,
+        'user_id' : localStorage.getItem("user_id")
     };
     var cb = function(result){
         console.log(result);
@@ -18,11 +24,18 @@ app.controller("mainPageCtrl", function ($scope, $http) {
 
     var cbAdd = function(result){
         console.log(result)
-        alert("Added into budgets")
+        alert("Added into budgets");
+        $scope.init();
+    }
+
+    var cbAddSpend = function(result){
+        console.log(result)
+        alert("Added into spendings");
+        $scope.init();
     }
 
     $scope.init = function() {
-        doAJAXCall('data', {}, cb , cb)
+        doAJAXCall('data', { 'user_id' : localStorage.getItem("user_id") }, cb , cb)
     }
 
     $scope.addBudget = function(){
@@ -30,6 +43,6 @@ app.controller("mainPageCtrl", function ($scope, $http) {
     }
 
     $scope.addSpending = function(){
-        doAJAXCall('insertdata', $scope.sendData, cbAdd , cbAdd);
+        doAJAXCall('insertspending', $scope.spendData, cbAddSpend , cbAddSpend);
     }
 });

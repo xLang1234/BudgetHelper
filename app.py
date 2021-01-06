@@ -30,7 +30,8 @@ def faq_route():
 
 @app.route("/api/data")
 def allData():
-    data = budgetTable.find({}, {"_id": 0})
+    query = {'user_id': request.args.get('user_id') }
+    data = budgetTable.find(query, {"_id": 0})
     return jsonify(list(data))
 
 @app.route("/api/insertdata")
@@ -46,13 +47,13 @@ def insertData():
 
 @app.route("/api/insertspending")
 def insertSpendingData():
-    query = {'user_id': request.args.get('user_id'), 'name' : request.args.get('name') }
+    # query = {'user_id': request.args.get('user_id'), 'name' : request.args.get('name') }
     update = {
         'user_id' : request.args.get('user_id'),
         'name' : request.args.get('name'),
         'amount' : request.args.get('amount')
     }
-    result = budgetTable.insert_one(query, update)
+    result = spending.insert_one(update)
     return str(result.acknowledged)
 
 if __name__ == '__main__':

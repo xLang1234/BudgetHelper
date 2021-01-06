@@ -73,13 +73,27 @@
                 <a class="btn btn-lg btn-primary mx-1" ng-click="addBudget()">Add Budget</a>
               </div>
             </div>
+            <br>
+            <br>
+
+            <h1 class="h3 mb-3 font-weight-normal">Add Spendings</h1>
+            <div class='parent'>
+              <div class='child'>
+                <p>Budget Name 
+                  <select name="repeatSelect" id="repeatSelect" ng-model="spendData['name']" class="form-control">
+                    <option ng-repeat="budget in data" value="[[ budget.name ]]">[[budget.name]]</option>
+                    <option value="" selected disabled hidden>Choose here</option>
+                  </select>
+                </p><br>
+                <p>Spent Amount <input type="number" ng-model="spendData['amount']" id="budgetAmount" class="form-control"></p>
+                <a class="btn btn-lg btn-primary mx-1" ng-click="addSpending()">Add Spending</a>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
-  
-  
 
 </body>
 

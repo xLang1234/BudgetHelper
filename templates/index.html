@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="static/theme.css">
+  <script>
+    var addPersonalPassword = function(){
+      console.log("aaa")
+      localStorage.setItem("user_id" , $(".user_id")[0].value );
+      console.log(window.location.hostname)
+      window.location.assign("/planner");
+    }
+  </script>
 </head>
 
 <body>
@@ -30,7 +38,9 @@
       <div class="row">
         <div class="col-md-8 mx-auto"> <i class="d-block fa fa-bomb mb-3 fa-5x"></i>
           <h1 class="display-3 mb-4">Welcome to BudgetPlanner!</h1>
-          <p class="lead mb-5">Please proceed to the planner to get started.</p> <a href="/planner" class="btn btn-lg btn-primary mx-1">Planner</a>
+          <p class="lead mb-5">Please enter an identifier to proceed to the planner and get started.</p> 
+          <p><input type="text" id="user_id" class="form-control user_id"></p>
+          <a onclick="addPersonalPassword()" class="btn btn-lg btn-primary mx-1">Planner</a>
         </div>
       </div>
       <p class="mt-5 mb-3 text-muted">BudgetPlanner &copy; 2020-2021</p>
