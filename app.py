@@ -12,6 +12,7 @@ myclient = pymongo.MongoClient(
 
 mydb = myclient["budgetplanner"]
 budgetTable = mydb["budgetTable"]
+spending = mydb["spending"]
 
 
 @app.route("/", methods=["GET"])
@@ -30,11 +31,25 @@ def allData():
 
 @app.route("/api/insertdata")
 def insertData():
-    data = request.args.get('data')
-    data['user_id'] = 1
-    query = {'user_id': 1 }
-    result = budgetTable.replace_one(query, data, True)
-    return result
+    query = {'user_id': request.args.get('user_id'), 'name' : request.args.get('name') }
+    update = {
+        'user_id' : request.args.get('user_id'),
+        'name' : request.args.get('name'),
+        'amount' : request.args.get('amount'),
+    }
+    result = budgetTable.replace_one(query, update, True)
+    return str(result.acknowledged)
+
+@app.route("/api/insertspending")
+def insertSpendingData():
+    query = {'user_id': request.args.get('user_id'), 'name' : request.args.get('name') }
+    update = {
+        'user_id' : request.args.get('user_id'),
+        'name' : request.args.get('name'),
+        'amount' : request.args.get('amount')
+    }
+    result = budgetTable.insert_one(query, update)
+    return str(result.acknowledged)
 
 if __name__ == '__main__':
     app.run()
