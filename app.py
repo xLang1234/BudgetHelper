@@ -28,6 +28,14 @@ def allData():
     data = budgetTable.find({}, {"_id": 0})
     return jsonify(list(data))
 
+@app.route("/api/insertdata")
+def insertData():
+    data = request.args.get('data')
+    data['user_id'] = 1
+    query = {'user_id': 1 }
+    result = budgetTable.replace_one(query, data, True)
+    return result
+
 if __name__ == '__main__':
     app.run()
     # app.run(host='0.0.0.0')
