@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="static/theme.css">
+  <link rel="stylesheet" href="static/faq.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container"> <a class="navbar-brand" href="#">
+        <i class="fa d-inline fa-bomb fa-lg"></i>
+        <b><b><i><u> BudgetPlanner </u></i></b></b>
+      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar10">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="/">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/planner">Planner</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/faq">FAQ</a> </li>
+        </ul> 
+      </div>
+    </div>
+  </nav>
+  <div class="py-5 text-center align-items-center d-flex">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-8 mx-auto"> 
+          <div class="panel-group" id="accordion">
+            <div class="faqHeader">General questions</div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Is account registration required?</a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        Account registration is not required! Everyone can use it freely
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">What features are there?</a>
+                    </h4>
+                </div>
+                <div id="collapseTen" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        There is adding function and update function for budgets. You can update your budget via Planner. Also you can add spendings to your budget to keep track of your spendings and budget left.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">How is the data stored?</a>
+                  </h4>
+              </div>
+              <div id="collapseTen" class="panel-collapse collapse">
+                  <div class="panel-body">
+                      The data is stored via MongoDB and retrieved via internal APIs developed.
+                  </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <p class="mt-5 mb-3 text-muted">BudgetPlanner &copy; 2020-2021</p>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+</body>
+
+</html>

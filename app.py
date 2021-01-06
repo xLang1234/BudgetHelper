@@ -24,6 +24,10 @@ def default():
 def planner_route():
     return render_template("planner.html")
 
+@app.route("/faq", methods=["GET"])
+def faq_route():
+    return render_template("faq.html")
+
 @app.route("/api/data")
 def allData():
     data = budgetTable.find({}, {"_id": 0})
