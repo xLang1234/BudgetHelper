@@ -6,9 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="static/theme.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="../static/scripts/a.js"></script>
+  <script src="../static/scripts/helper.js"></script>
+  <script src="../static/scripts/planner.js"></script>
 </head>
 
-<body>
+<body id="wrapper" ng-app="myApp" ng-controller="mainPageCtrl" ng-init="init()" >
   <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="">
     <div class="container"> <a class="navbar-brand" href="#">
         <i class="fa d-inline fa-bomb fa-lg"></i>
@@ -28,18 +34,24 @@
   <div class="py-5 text-center align-items-center d-flex">
     <div class="container py-5">
       <div class="row">
-        <div class="col-md-8 mx-auto"> <i class="d-block fa fa-bomb mb-3 fa-5x"></i>
-          <h1 class="display-3 mb-4">Welcome to BudgetPlanner!</h1>
-          <p class="lead mb-5">Please proceed to the planner to get started.</p> <a href="/planner" class="btn btn-lg btn-primary mx-1">Planner</a>
+        <div class="col-md-8 mx-auto">
+          <form class="form-signin" style="margin-left: 30px; margin-right: 30px;">
+            <h1 class="h3 mb-3 font-weight-normal">Add Budget</h1>
+            <div class='parent'>
+              <div class='child'>
+                <p>Budget Name <input type="text" ng-model="data['budget']['name']" id="budgetName" class="form-control"></p>
+                <p>Budget Amount <input type="text" ng-model="data['budget']['amount']" id="budgetAmount" class="form-control"></p>
+                <a class="btn btn-lg btn-primary mx-1" ng-click="click()">Add Budget</a>
+              </div>
+            </div>
         </div>
       </div>
     </div>
   </div>
   
-  <script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
+  
+
 </body>
 
 </html>
