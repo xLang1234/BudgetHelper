@@ -53,11 +53,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="budget in data">
+                    <tr ng-repeat="budget in data.budget">
                       <th scope="row">[[ $index + 1]]</th>
                       <td>[[ budget.name ]]</td>
                       <td>[[ budget.amount ]]</td>
-                      <td>@mdo</td>
+                      <td>[[ data.spending[budget.name] ]]</td>
+                      <td>[[ data.left[budget.name] ]]</td>
                     </tr>
                   </tbody>
                 </table>
@@ -81,7 +82,7 @@
               <div class='child'>
                 <p>Budget Name 
                   <select name="repeatSelect" id="repeatSelect" ng-model="spendData['name']" class="form-control">
-                    <option ng-repeat="budget in data" value="[[ budget.name ]]">[[budget.name]]</option>
+                    <option ng-repeat="budget in data.budget" value="[[ budget.name ]]">[[budget.name]]</option>
                     <option value="" selected disabled hidden>Choose here</option>
                   </select>
                 </p><br>

@@ -35,7 +35,7 @@ app.controller("mainPageCtrl", function ($scope, $http) {
     }
 
     $scope.init = function() {
-        doAJAXCall('data', { 'user_id' : localStorage.getItem("user_id") }, cb , cb)
+        doAJAXCall('formatteddata', { 'user_id' : localStorage.getItem("user_id") }, cb , cb)
     }
 
     $scope.addBudget = function(){
