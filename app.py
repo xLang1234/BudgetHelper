@@ -3,7 +3,7 @@ import requests
 import json
 import random
 import pymongo
-
+import datetime
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
@@ -77,6 +77,7 @@ def allFormattedData():
 def insertData():
     query = {'user_id': request.args.get('user_id'), 'name' : request.args.get('name') }
     update = {
+        'budget_id' : datetime.datetime.now().isoformat(),
         'user_id' : request.args.get('user_id'),
         'name' : request.args.get('name'),
         'amount' : request.args.get('amount'),
@@ -84,15 +85,29 @@ def insertData():
     result = budgetTable.replace_one(query, update, True)
     return str(result.acknowledged)
 
+    
 @app.route("/api/insertspending")
 def insertSpendingData():
     # query = {'user_id': request.args.get('user_id'), 'name' : request.args.get('name') }
     update = {
+        'spending_id' : datetime.datetime.now().isoformat(),
         'user_id' : request.args.get('user_id'),
         'name' : request.args.get('name'),
         'amount' : request.args.get('amount')
     }
     result = spending.insert_one(update)
+    return str(result.acknowledged)
+
+@app.route("/api/deletespending")
+def deleteSpendingData():
+    # query = {'user_id': request.args.get('user_id'), 'name' : request.args.get('name') }
+    delete = {
+        'spending_id' : request.args.get('spending_id'),
+        'user_id' : request.args.get('user_id'),
+        'name' : request.args.get('name'),
+        'amount' : request.args.get('amount')
+    }
+    result = spending.delete_one(delete)
     return str(result.acknowledged)
 
 if __name__ == '__main__':
